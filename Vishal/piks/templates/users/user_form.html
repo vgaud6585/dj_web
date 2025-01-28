@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+     <html>
+     <head>
+         <title>User Form</title>
+         <link rel="stylesheet" href="{% static 'piks/css/user.css' %}" title="main" type="text/css" />
+     </head>
+     <body>
+         <h1>{% if form.instance.pk %}Edit User{% else %}Add User{% endif %}</h1>
+         <form method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+             {{ form.as_p }}
+             <button type="submit">Save</button>
+         </form>
+         <a href="{% url 'user_list' %}">Cancel</a>
+         <script src="{% static 'piks/js/script.js' %}" type="text/javascript" charset="utf-8"></script>
+     </body>
+     </html>

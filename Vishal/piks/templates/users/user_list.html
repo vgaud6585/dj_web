@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+     <html>
+     <head>
+         <title>User List</title>
+         <link rel="stylesheet" href="{% static 'piks/css/user.css' %}" title="main" type="text/css" />
+         <link rel="stylesheet" href="{% static 'piks/css/style.css' %}" title="main" type="text/css" />
+     </head>
+     <body>
+         <h1><a href="admin/">Admin Panel</a></h1>
+         <h1>Your Record</h1>
+         <a href="{% url 'user_create' %}">Add User</a>
+         <table>
+             <tr>
+                 <th>Heading</th>
+                 <th>Description</th>
+                 <th>Code-Box</th>
+                 <th>Image</th>
+                 <th>Actions</th>
+             </tr>
+             {% for user in users %}
+             <tr>
+                 <td>{{ user.usr_heading }}</td>
+                 <td>{{ user.usr_description }}</td>
+                 <td>{{ user.usr_code_box }}</td>
+                 <td><img src="{{ user.usr_image.url }}" alt="{{ user.usr_name }}" width="50"></td>
+                 <td>
+                     <a href="{% url 'user_edit' user.pk %}">Edit</a>
+                     <a href="{% url 'user_delete' user.pk %}">Delete</a>
+                 </td>
+             </tr>
+             {% endfor %}
+         </table>
+      
+        <script src="{% static 'piks/js/script.js' %}" type="text/javascript" charset="utf-8"></script>
+     </body>
+     </html>
