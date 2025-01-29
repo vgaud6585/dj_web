@@ -6,35 +6,38 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <title>User List</title>
-         <link rel="stylesheet" href="{% static 'piks/css/user.css' %}" title="main" type="text/css" />
          <link rel="stylesheet" href="{% static 'piks/css/style.css' %}" title="main" type="text/css" />
+         <link rel="stylesheet" href="{% static 'piks/css/user.css' %}" title="main" type="text/css" />
      </head>
      <body>
-         <h1><a href="admin/">Admin Panel</a></h1>
+         <h1 class="web_page"><a href="admin/">Admin Panel</a></a>
          <h1>Your Record</h1>
-         <a href="{% url 'user_create' %}">Add User</a>
-         <table>
-             <tr>
-                 <th>Heading</th>
-                 <th>Description</th>
-                 <th>Code-Box</th>
-                 <th>Image</th>
-                 <th>Actions</th>
-             </tr>
-             {% for user in users %}
-             <tr>
-                 <td>{{ user.usr_heading }}</td>
-                 <td>{{ user.usr_description }}</td>
-                 <td>{{ user.usr_code_box }}</td>
-                 <td><img src="{{ user.usr_image.url }}" alt="{{ user.usr_name }}" width="50"></td>
-                 <td>
-                     <a href="{% url 'user_edit' user.pk %}">Edit</a>
-                     <a href="{% url 'user_delete' user.pk %}">Delete</a>
-                 </td>
-             </tr>
-             {% endfor %}
-         </table>
-      
+         <h3 class="web_page"><a href="{% url 'user_create' %}">Add User</a></a>
+
+      <div class="container">
+        {% for user in users %}
+        <div class="subbox">
+          <div class="box">
+            <h1>{{ user.usr_heading }}</h1>
+            <p>{{ user.usr_description }}</p>
+            <pre>
+              {{ user.usr_code_box }}
+            </pre>
+          </div>
+          <div class="imgs">
+            <img src="{{ user.usr_image.url }}" alt="{{ user.usr_name }}" width="50">
+          </div>
+          <div class="links">
+            <div class="btn btn1">
+              <a href="{% url 'user_edit' user.pk %}">Edit</a>
+            </div>
+            <div class="btn btn2">
+              <a href="{% url 'user_delete' user.pk %}">Delete</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
         <script src="{% static 'piks/js/script.js' %}" type="text/javascript" charset="utf-8"></script>
      </body>
      </html>

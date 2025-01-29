@@ -11,6 +11,56 @@ body {
 
 h1 {
   color: red;
-  background-color: grey;
-  width: 300px;
+  background-color: wheat;
+  
+}
+
+ a {
+  text-decoration: none;
+  font-size: 26px;
+}
+
+.container {
+  width: 100vw;
+  height: 80vh;
+  overflow: scroll;
+  border: 2px solid salmon;
+  display: flex;
+  background-color: gray;
+}
+
+.subbox {
+  display: flex;
+  flex-direction: column;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+}
+.box > h1 {
+  background-color: #799473;
+}
+
+.box > p {
+  background-color: cyan;
+}
+
+.box > pre {
+  background-color: #799473;
+  text-wrap: wrap;
+}
+
+.imgs img {
+  width: 100%;
+}
+
+.links {
+  display: flex;
+}
+.links > div {
+  flex-grow: 1;
+  text-align: center;
+  border: 2px solid red;
+  background-color: pink;
+  color: red;
 }
