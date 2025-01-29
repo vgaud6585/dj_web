@@ -9,12 +9,34 @@
      </head>
      <body>
          <h1>{% if form.instance.pk %}Edit User{% else %}Add User{% endif %}</h1>
-         <form method="post" enctype="multipart/form-data">
-             {% csrf_token %}
-             {{ form.as_p }}
-             <button type="submit">Save</button>
-         </form>
+         
          <a href="{% url 'user_list' %}">Cancel</a>
+    <div class="user-form">
+      <form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+        {% csrf_token %}
+        <ul>
+          <li>
+            <label for="id_usr_heading">Heading </label>
+            <input type="text" name="usr_heading" id="id_usr_heading" value="" placeholder="Heading"/>
+          </li>
+          <li>
+            <label for="id_usr_description">Descriptions </label>
+            <input type="text" name="usr_description" id="id_usr_description" value="" placeholder="Descriptions"/>
+          </li>
+          <li>
+            <label for="id_usr_code_box">Code Box </label>
+            <textarea name="usr_code_box" id="id_usr_code_box" rows="8" cols="40" placeholder="Code Box"></textarea>
+          </li>
+          <li>
+            <label for="id_usr_image">Upload Image</label>
+            <input type="file" name="usr_image" id="id_usr_image" value="" />
+          </li>
+          <li>
+            <button type="submit">Save Data</button>
+          </li>
+        </ul>
+      </form>
+    </div>
          <script src="{% static 'piks/js/script.js' %}" type="text/javascript" charset="utf-8"></script>
      </body>
      </html>
