@@ -16,6 +16,10 @@
         {% csrf_token %}
         <ul>
           <li>
+            <label for="id_usr_image">Topic </label>
+            <input type="text" name="usr_image" id="id_usr_image value="" placeholder="Topic"/>
+          </li>
+          <li>
             <label for="id_usr_heading">Heading </label>
             <input type="text" name="usr_heading" id="id_usr_heading" value="" placeholder="Heading"/>
           </li>
@@ -27,10 +31,7 @@
             <label for="id_usr_code_box">Code Box </label>
             <textarea name="usr_code_box" id="id_usr_code_box" rows="8" cols="40" placeholder="Code Box"></textarea>
           </li>
-          <li>
-            <label for="id_usr_image">Upload Image</label>
-            <input type="file" name="usr_image" id="id_usr_image" value="" />
-          </li>
+          
           <li>
             <button type="submit">Save Data</button>
           </li>
